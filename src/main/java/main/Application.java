@@ -12,13 +12,15 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
-		
+		ApplicationContext ctx;
+		ctx = new AnnotationConfigApplicationContext(Config.class);
+
 		Car sportCar = ctx.getBean(SportCar.class);
 		Car offRoadCar = ctx.getBean(OffRoadCar.class);
-		
-		System.out.println("SportCar engine: " + sportCar.showEngineHP());
-		System.out.println("OffroadCar engine: " + offRoadCar.showEngineHP());
+
+		sportCar.showInfo();
+		offRoadCar.showInfo();
+
 		
 		((AnnotationConfigApplicationContext)ctx).close();
 		
